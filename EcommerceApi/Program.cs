@@ -2,7 +2,9 @@ using Npgsql;
 using Microsoft.EntityFrameworkCore;
 using EcommerceApi.Data;
 using EcommerceApi.Models;
+using EcommerceAPi.Services;
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -10,6 +12,19 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        policy =>
+        {
+            policy.WithOrigins("https://client-ecommerce-zata.onrender.com/")
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
+builder.Services.AddTransient<OpenRouterService>();
+builder.Services.AddHttpClient();
+builder.Services.AddControllers();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -77,19 +92,27 @@ app.MapGet("/waren", async (ApplicationDbContext db) =>
     return Results.Ok(products);
 });
 app.MapGet("/api/products", () => new { message = "Test réussi" });
-app.MapGet("/debug", async (ApplicationDbContext db) => 
+app.MapGet("/debug", async (ApplicationDbContext db) =>
 {
-    try {
-        return Results.Ok(new {
+    try
+    {
+        return Results.Ok(new
+        {
             dbStatus = await db.Database.CanConnectAsync(),
             tables = db.Model.GetEntityTypes().Select(e => e.GetTableName())
         });
     }
-    catch (Exception ex) {
+    catch (Exception ex)
+    {
         return Results.Problem(ex.ToString());
     }
 });
 
+
+app.UseRouting();
+app.UseCors("AllowSpecificOrigin");
+app.UseAuthorization();
+app.MapControllers();
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)

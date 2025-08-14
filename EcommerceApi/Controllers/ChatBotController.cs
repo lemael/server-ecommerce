@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/chatbot")]
 public class ChatBotController : ControllerBase
 {
   
@@ -15,16 +15,18 @@ public class ChatBotController : ControllerBase
 
      private readonly OpenRouterService _openRouterService;
     private readonly ApplicationDbContext _db;
-
-    public ChatBotController(OpenRouterService openRouterService, ApplicationDbContext db)
+    private readonly ILogger<ChatBotController> _logger;
+    public ChatBotController(ILogger<ChatBotController> logger, OpenRouterService openRouterService, ApplicationDbContext db)
     {
         _openRouterService = openRouterService;
         _db = db;
+        _logger = logger;
     }
 
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] ChatRequest request)
     {
+        _logger.LogInformation("Requête reçue");
         if (string.IsNullOrWhiteSpace(request.Question))
         {
             return BadRequest("Die Frage kann nicht leer sein.");

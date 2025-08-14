@@ -134,3 +134,4 @@
 /home/mael/Dokumente/project/ecommerce-app/server/EcommerceApi/obj/Debug/net8.0/EcommerceApi.pdb
 /home/mael/Dokumente/project/ecommerce-app/server/EcommerceApi/obj/Debug/net8.0/EcommerceApi.genruntimeconfig.cache
 /home/mael/Dokumente/project/ecommerce-app/server/EcommerceApi/obj/Debug/net8.0/ref/EcommerceApi.dll
+/home/mael/Dokumente/project/ecommerce-app/server/EcommerceApi/obj/Debug/net8.0/EcommerceApi.sourcelink.json
