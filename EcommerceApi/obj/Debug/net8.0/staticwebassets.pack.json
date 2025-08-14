@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "/home/mael/Dokumente/project/ecommerce-app/server/EcommerceApi/wwwroot/add-product.html",
+      "PackagePath": "staticwebassets/add-product.html"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.EcommerceApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.EcommerceApi.props",
+      "PackagePath": "build\\EcommerceApi.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.EcommerceApi.props",
+      "PackagePath": "buildMultiTargeting\\EcommerceApi.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.EcommerceApi.props",
+      "PackagePath": "buildTransitive\\EcommerceApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

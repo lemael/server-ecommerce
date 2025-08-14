@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "XA5iDRP2TfxPboygFTT6+HnEi6eGZVn5I2vxgda3654=",
+  "Source": "EcommerceApi",
+  "BasePath": "_content/EcommerceApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "EcommerceApi/wwwroot",
+      "Source": "EcommerceApi",
+      "ContentRoot": "/home/mael/Dokumente/project/ecommerce-app/server/EcommerceApi/wwwroot/",
+      "BasePath": "_content/EcommerceApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/mael/Dokumente/project/ecommerce-app/server/EcommerceApi/wwwroot/add-product.html",
+      "SourceId": "EcommerceApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/mael/Dokumente/project/ecommerce-app/server/EcommerceApi/wwwroot/",
+      "BasePath": "_content/EcommerceApi",
+      "RelativePath": "add-product.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/add-product.html"
+    }
+  ]
+}
