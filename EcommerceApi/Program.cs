@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigin",
         policy =>
         {
-            policy.WithOrigins("https://client-ecommerce-eta.vercel.app/")
+            policy.AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader();
         });
