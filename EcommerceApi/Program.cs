@@ -14,12 +14,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowSpecificOrigin",
-        policy =>
+    options.AddPolicy("AllowSpecificOrigins",
+        builder =>
         {
-            policy.WithOrigins("https://client-ecommerce-eta.vercel.app/")
-                .AllowAnyMethod()
-                .AllowAnyHeader();
+            builder.WithOrigins("https://client-ecommerce-eta.vercel.app/")
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
         });
 });
 builder.Services.AddTransient<OpenRouterService>();
@@ -110,7 +110,7 @@ app.MapGet("/debug", async (ApplicationDbContext db) =>
 
 
 app.UseRouting();
-app.UseCors("AllowSpecificOrigin");
+app.UseCors("AllowSpecificOrigins");
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
